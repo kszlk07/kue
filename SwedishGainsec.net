@@ -1,0 +1,42 @@
+* C:\Users\kszlk\AppData\Local\LTspice\SwedishGainsec.asc
+V1 N008 0 9
+D1 N008 +9V 1N5817
+C1 +9V 0 100µ V=25 Irms=370m Rser=0.24 Lser=0 mfg="Nichicon" pn="UPL1E101MPH" type="Al electrolytic"
+R1 +9V +4.5V 10k
+R2 +4.5V 0 10k
+C2 +4.5V 0 47µ V=25 Irms=90m Rser=1.6 Lser=0 mfg="Nichicon" pn="UPR1E470MAH" type="Al electrolytic"
+R25 N001 P001 3.3k
+XU4 N001 N005 NC_01 NC_02 N002 TL072
+XU5 N001 N005 N009 pot Rtot=10K wiper=.5
+XU6 N001 N005 N010 pot Rtot=10K wiper=.5
+XU7 N017 N012 0 +9V N012 TL072
+R26 N017 +4.5V 100k
+C15 N011 N017 0.068µ
+C16 N009 N011 1.5µ V=25 Irms=110m Rser=6.7 Lser=0 mfg="Vishay" pn="293D155M025A" type="Tantalum"
+R27 N012 N011 330
+C17 N010 N015 0.15µ
+XU8 N018 N016 0 +9V N016 TL072
+C18 N015 N018 6800p
+R28 N018 +4.5V 82k
+R29 N016 N015 330
+R30 N019 +4.5V 100k
+C19 N010 N013 0.1µ
+C20 N013 N019 4700p
+R31 N014 N013 330
+XU9 N019 N014 0 +9V N014 TL072
+C21 N002 N005 470p
+R32 N002 N005 3.3k
+C22 N003 N002 10µ V=25 Irms=39m Rser=2.8 Lser=0 mfg="Nichicon" pn="UPR1E100MAH" type="Al electrolytic"
+XU10 N004 0 N006 pot Rtot=10K wiper=.5
+C23 N007 N006 0.047µ
+R33 +4.5v N007 470k
+R34 N004 N003 10k
+V2 P001 0 SINE(0 0.4 1k)
+.model D D
+.lib C:\Users\kszlk\AppData\Local\LTspice\lib\cmp\standard.dio
+* Power supply
+.tran 10ms
+.include pot.sub
+.lib C:\Users\kszlk\AppData\Local\LTspice\downloaded\TL072.301
+.backanno
+.end
